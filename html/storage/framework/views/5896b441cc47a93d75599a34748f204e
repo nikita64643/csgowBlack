@@ -1,0 +1,35 @@
+
+
+<?php $__env->startSection('content'); ?>
+    <div class="user-winner-block inventory-block">
+
+        <div class="title-block">
+            <h2>
+                Стоимость моего инвентаря - <span id="totalPrice" class="price-value">0</span> <span class="currency">руб.</span>
+            </h2>
+        </div>
+
+        <div class="user-winner-table">
+            <table>
+                <thead>
+                <tr>
+                    <td></td>
+                    <td class="item-name-h">Название</td>
+                    <td class="item-type-h">Тип</td>
+                    <td class="item-cost-h">Цена <span>(руб)</span></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td colspan="4" style="text-align: center; padding: 20px 0px; height: 100%;">Подождите, идет загрузка инвентаря ...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+<script>
+    $(function(){
+        loadMyInventory()
+    });
+</script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

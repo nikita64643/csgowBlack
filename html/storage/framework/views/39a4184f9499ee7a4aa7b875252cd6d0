@@ -1,0 +1,47 @@
+<?php $__env->startSection('content'); ?>
+    <div class="user-history-block bid-history">
+
+        <div class="title-block">
+            <h2>История ваших ставок</h2>
+        </div>
+        <?php $__empty_1 = true; foreach($games as $game): $__empty_1 = false; ?>
+            <div class="user-history-content" id="showMoreContainer">
+                <div class="prize-container  <?php if($game->winner_id == $u->id): ?> win <?php else: ?> fail <?php endif; ?>">
+                    <div class="prize-head">
+                        <div class="left-block">
+                            <div class="prize-number">
+                                <a href="/game/<?php echo e($game->id); ?>">Игра <span>#<?php echo e($game->id); ?></span></a>
+                                <a href="/game/<?php echo e($game->id); ?>" class="round-history">История игры</a>
+                            </div>
+                            <div class="prize-info" style="margin-top: 25px;">
+                                <div class="my-deposit-info">
+                                    Сумма джекпота:
+                                    <span><?php echo e($game->price); ?> <u>руб</u></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-block">
+                            <div class="right-content">
+                                <?php if($game->winner_id == $u->id): ?>
+                                    <h2>Победа</h2>
+                                <?php else: ?>
+                                    <h2>Проигрыш</h2>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        <?php endforeach; if ($__empty_1): ?>
+            <div class="user-history-content">
+                <div class="deposit-txt-info">
+                    Вы пока что не участвовали ни в одной игре
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

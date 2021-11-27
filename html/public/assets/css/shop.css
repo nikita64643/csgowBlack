@@ -1,0 +1,465 @@
+#items-list {
+    margin-right: -25px;
+}
+.deposit-item {
+    cursor: pointer !important;
+    float: none;
+    display: inline-block;
+    height: 96px;
+    width: 112px;
+    margin: 0px 12.6px 16px 0;
+}
+
+.deposit-item .img-wrap img {
+    width: 90px;
+    height: 90px;
+    margin-top: -8px;
+    margin-bottom: -1px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.deposit-item .name {
+    font-size: 11px;
+    font-weight: 400;
+    padding-left: 5px;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: rgb(21, 33, 41);
+    height: 15px;
+    line-height: 15px;
+    border-radius: 0px 0px 5px 5px;
+    position: absolute;
+    z-index: 1;
+}
+.deposit-item:hover .name {
+    white-space: normal;
+    height: auto !important;
+}
+
+.deposit-item .deposit-price {
+    color: #D3E7F3;
+    font-size: 14px;
+    font-weight: 900;
+    position: absolute;
+    width: 100%;
+    bottom: 17px;
+    left: 5px;
+    text-shadow: 1px 1px 5px #000000;
+    text-align: left;
+    background: none;
+    padding: 0px;
+}
+.en .deposit-item .deposit-price > span {
+    font-size: 15px;
+}
+.ru .deposit-item .deposit-price > span {
+    display: none;
+}
+.ru .deposit-item .deposit-price:after {
+    content: '';
+    background: url("../img/sprites.png") -17px -451px no-repeat;
+    height: 13px;
+    width: 15px;
+    position: absolute;
+    margin-left: 4px;
+    top: 0px;
+}
+
+.deposit-count {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    font-size: 12px;
+}
+
+.left-totalitems {
+    display: inline-block;
+    color: #c2c3c7;
+    margin-top: 8px;
+    font-size: 14px;
+    padding-left: 23px;
+    background: url(../img/shop-sprite.png) no-repeat;
+    background-position: -103px -35px;
+    line-height: 18px;
+}
+.left-totalitems span {
+    color: #fff;
+}
+
+.price-form {
+    display: inline-block;
+    margin-right: 15px;
+    float: right;
+    color: #c2c3c7;
+}
+.price-form input {
+    background-color: #20313E;
+    border: 1px solid #2C4A5F;
+    border-radius: 3px;
+    outline: none;
+    width: 80px;
+    height: 33px;
+    line-height: 33px;
+    padding: 0 10px;
+    text-align: center;
+    color: #fff;
+    transition: 0.2s;
+    margin: 0 4px;
+}
+.price-form input:focus {
+    background: #15212A;
+    border: 1px solid rgba(179, 229, 255, 0.7);
+    -webkit-box-shadow: inset 0 1px 1px rgba(179, 229, 255, 0.2),0 0 6px rgba(179, 229, 255, 0.88);
+    box-shadow: inset 0 1px 1px rgba(179, 229, 255, 0.2),0 0 6px rgba(179, 229, 255, 0.88);
+}
+
+.search-form {
+    float: right;
+    display: inline-block;
+    position: relative;
+    color: #9fa1a7;
+    font-size: 0.90em;
+}
+.search-form .search-btn {
+    background: url(../img/shop-sprite.png) no-repeat -77px 0;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    margin-top: -8px;
+}
+.search-form input {
+    color: #fff;
+    background-color: #20313E;
+    border: 1px solid #2C4A5F;
+    border-radius: 3px;
+    outline: none;
+    height: 33px;
+    line-height: 33px;
+    padding: 0 10px 0 33px;
+    width: 290px;
+    transition: 0.2s;
+}
+.search-form input:focus {
+    background: #15212A;
+    border: 1px solid rgba(179, 229, 255, 0.7);
+    -webkit-box-shadow: inset 0 1px 1px rgba(179, 229, 255, 0.2),0 0 6px rgba(179, 229, 255, 0.88);
+    box-shadow: inset 0 1px 1px rgba(179, 229, 255, 0.2),0 0 6px rgba(179, 229, 255, 0.88);
+}
+
+.shop-item-filters {
+    background: #253e50;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #2c4a5f;
+    padding: 10px;
+}
+.shop-item-filters .myhistorylink {
+    float: right;
+    color: #7193AB;
+    margin: 8px 5px 0px 12px;
+    text-decoration: none;
+}
+.shop-item-filters .myhistorylink:hover {
+    text-decoration: underline;
+}
+
+.shop-modal {
+    background-color: rgba(30, 40, 50, 0.95);
+    -webkit-box-shadow: 0 17px 53px 12px rgba(12, 19, 25, 0.76);
+    box-shadow: 0 17px 53px 12px rgba(12, 19, 25, 0.76);
+    color: #b0dcfa;
+    border-radius: 4px 0px 4px 4px;
+    border: solid 1px rgba(241, 241, 241, 0.07);
+    width: 570px;
+    height: 212px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 999;
+    padding: 20px;
+}
+
+.shop-modal-close {
+    width: 31px;
+    height: 29px;
+    opacity: 1;
+    z-index: 1;
+    background: #1D2730;
+    position: absolute;
+    top: -1px;
+    right: -34px;
+    cursor: pointer;
+    border: solid 1px rgba(241, 241, 241, 0.07);
+}
+.shop-modal-close:before {
+    content: '';
+    background: url(../img/shop-sprite.png) no-repeat -58px 0;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.shop-modal-close:hover {
+    background-color: rgb(24, 32, 40);
+}
+.detailed-info-price-wrap {
+    position: relative;
+}
+
+.shop-buy-btn {
+    font-size: 28px;
+    color: #E9F74E;
+    font-weight: 900;
+    top: 10px;
+    right: -3px;
+    position: absolute;
+    border: 4px solid;
+    padding: 5px 9px 5px 11px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.shop-buy-btn:hover {
+    opacity: 0.7;
+}
+
+/*detailed-info-body*/
+.detailed-info-body .detailed-info-body-left {
+    float: left;
+    margin: -15px 0 0 -5px;
+}
+
+.detailed-info-body .detailed-info-body-left:after {
+    content: '';
+    width: 243px;
+    height: 243px;
+    position: absolute;
+    background: url(../img/item_bg.png) no-repeat;
+    top: -42px;
+    left: -34px;
+    z-index: 1;
+}
+
+.detailed-info-body-left .detailed-image > img {
+    width: 190px;
+    margin: -15px 0px;
+}
+.detailed-info-body-left .detailed-image {
+    margin-bottom: 2px;
+    position: relative;
+    z-index: 2;
+}
+.detailed-info-body-left .explore-game {
+    text-decoration: none;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.8;
+    display: block;
+    text-align: center;
+    margin-right: 5px;
+    color: #ADB8BF;
+}
+.detailed-info-body-left .explore-game:before {
+    content: '';
+    display: inline-block;
+    background: url(../img/shop-sprite.png) no-repeat;
+    background-position: -93px 0px;
+    width: 40px;
+    height: 12px;
+}
+.detailed-info-body-left .explore-game:hover {
+    opacity: 1;
+}
+.detailed-info-body .detailed-info-body-right {
+    width: 60%;
+    float: right;
+    text-align: right;
+}
+.detailed-info-body .detailed-info-body-right h2 {
+    margin: 0px;
+    padding: 14px 0 10px;
+    border-top: 4px solid #fff;
+    border-bottom: 1px solid #6a707d;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.detailed-info-desc-wrap {
+    margin: 15px 0px 5px;
+}
+.detailed-info-body-right .detailed-info-desc,
+.detailed-info-body-right .detailed-info-price {
+    display: inline-block;
+    color: #d9dadb;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    width: 142px;
+    text-transform: uppercase;
+}
+.detailed-info-body-right .detailed-info-desc:first-of-type,
+.detailed-info-body-right .detailed-info-price:first-of-type {
+    margin-right: 20px;
+}
+.detailed-info-body-right .detailed-info-desc dl dt,
+.detailed-info-body-right .detailed-info-price dl dt {
+    border-bottom: 1px solid #6a707d;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+.detailed-info-body-right .detailed-info-desc dl dd,
+.detailed-info-body-right .detailed-info-price dl dd {
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 0px;
+}
+
+.detailed-info-body-right .detailed-info-price dt {
+    font-size:2em;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: #939cb2;
+}
+.detailed-info-body-right .detailed-info-price .detailed-our-price {
+    color: #e9f74e;
+    border-bottom: 3px solid #e9f74e;
+}
+.detailed-info-body-right .detailed-info-price .detailed-our-price + dd {
+    color: #e9f74e;
+}
+.detailed-info-body-right .detailed-info-price dt span {
+    font-weight: normal;
+    text-transform: none;
+    font-size: 0.75em;
+}
+.detailed-info-body-right .detailed-info-price .detailed-steam-price {
+    position: relative;
+    display: inline-block;
+}
+.detailed-info-body-right .detailed-info-price .detailed-steam-price:before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    height: 2px;
+    background-color: rgba(147, 156, 178, 0.8);
+    top: 45%;
+    left: 0;
+}
+
+.buy-status {
+    background-color: #3c624a;
+    border: solid 1px #547348;
+    color: #cbffd8;
+    font-weight: 400;
+    font-size: 13px;
+    -webkit-box-shadow: 0 0 7px rgba(165, 62, 74, 0.11);
+    box-shadow: 0 0 7px rgba(165, 62, 74, 0.11);
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.26);
+    padding: 5px 10px;
+    margin-top: 7px;
+    margin-left: -21px;
+    margin-right: -21px;
+    text-align: center;
+}
+
+.memoMsg {
+    color: #A7AFBD;
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: 100;
+    line-height: 13px;
+    background: rgba(75, 80, 93, 0.4);
+    padding: 11px 10px 10px 100px;
+}
+.memoMsg:before {
+    content: '';
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    background: url(../img/warning-64.png) no-repeat;
+    top: 244px;
+    left: 36px;
+}
+
+.purchase-history-table table {
+    width: 100%;
+    color: #d5dbec;
+}
+.purchase-history-table table > thead > tr > th {
+    background: rgb(50, 63, 76);
+}
+.purchase-history-table table > thead > tr > th:nth-child(2n+1) {
+    background: rgb(56, 69, 82);
+}
+.purchase-history-table table > thead > tr > th,
+.purchase-history-table table > tbody > tr > td {
+    padding: 10px;
+    font-weight: 300;
+    text-align: center;
+}
+.purchase-history-table table > tbody > tr:nth-child(even) {
+    background: #494f5e;
+}
+/*.purchase-history-table table > tbody > tr:hover {
+    background:#494f5e;
+}*/
+.purchase-history-table table > tbody > tr > td.weapon-td {
+    color: #fff;
+}
+.purchase-history-table table > tbody > tr > td.weapon-td span {
+    cursor: pointer;
+    background: #2A2E3A;
+    padding: 0px 5px 2px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.purchase-history-table table > tbody > tr > td.weapon-td span:hover {
+    background: #20242D;
+}
+.purchase-history-table table > tbody > tr > td.time-td:first-line {
+    color: #fff;
+}
+.purchase-history-table table > tbody > tr > td.price-td {
+    font-weight: bold;
+    color: #fff;
+}
+.purchase-history-table table > tbody > tr > td.price-td span {
+    font-weight: 300;
+}
+.purchase-history-table table > tbody > tr > td.waiting-td,
+.purchase-history-table table > tbody > tr > td.success-td {
+    font-weight: bold;
+    font-size:1.1em;
+}
+.purchase-history-table table > tbody > tr > td.waiting-td {
+    color: #f7cd4e;
+}
+.purchase-history-table table > tbody > tr > td.success-td {
+    color: #96f74e;
+}
+.purchase-history-table table > tbody > tr > td.accepted-td {
+    color: green;
+}
+.purchase-history-table table > tbody > tr > td.declined-td {
+    color: red;
+}
+.purchase-history-table table > tbody > tr > td.error-td {
+    color: red;
+}

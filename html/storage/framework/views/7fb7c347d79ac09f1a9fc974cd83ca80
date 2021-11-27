@@ -1,0 +1,85 @@
+
+
+<?php $__env->startSection('content'); ?>
+    <div class="user-profile-container">
+
+        <div class="user-profile-head">
+
+            <div class="user-avatar">
+                <img src="<?php echo e($avatar); ?>">
+            </div>
+
+            <div class="left-block">
+
+                <div class="user-info">
+                    <div class="username">
+                        <?php echo e($username); ?>
+
+                    </div>
+                    <div class="reputation-container">
+                        Репутация:
+                        <div class="reputation-block">
+                            <?php echo e($votes); ?>
+
+                            <a id="user-level-btn" class="popover-btn"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-block">
+                    <ul class="list-reset">
+                        <li>Игры: <span><?php echo e($games); ?></span></li>
+                        <li>Победы: <span class="lightgreen"><?php echo e($wins); ?></span></li>
+                        <li>Win rate: <span class="lightgreen"><?php echo e($winrate); ?>%</span></li>
+                        <li>Сумма раундов: <span class="currency-icon"><?php echo e($totalBank); ?></span></li>
+                    </ul>
+                </div>
+
+                <?php if(!empty($u) && $u->steamid64 == $steamid): ?>
+                    <div class="input-group" style="width: 76.8%; position: relative;">
+                        <input class="save-trade-link-input" type="text" placeholder="Введите вашу ссылку на обмен" value="<?php echo e($u->trade_link); ?>">
+                        <span class="save-trade-link-input-btn"></span>
+                    </div>
+                    <a class="getLink" href="http://steamcommunity.com/id/me/tradeoffers/privacy#trade_offer_access_url" target="_blank">Узнать мою ссылку на обмен</a>
+                <?php else: ?>
+                    <div class="input-group">
+                        <a class="userLink" href="<?php echo e($url); ?>" target="_blank"><?php echo e($url); ?></a>
+                    </div>
+                <?php endif; ?>
+
+            </div>
+
+        </div>
+
+        <div class="user-profile-content">
+            <table>
+                <tbody id="showMoreContainer">
+
+                <?php foreach($list as $game): ?>
+                    <tr>
+                        <td><a href="/game/<?php echo e($game -> id); ?>" class="game-number">Игра
+                                <span><?php echo e($game -> id); ?></span></a></td>
+                        <td class="round-money"><?php echo e($game -> bank); ?></td>
+                        <td class="game-status">
+                            <?php if($game->win == 1): ?>
+                                <span class="prize-status status-win">Победа</span>
+                            <?php elseif($game->win == -1): ?>
+                                <span class="prize-status status-wait">Не завершена</span>
+                            <?php else: ?>
+                                <span class="prize-status status-err">Проигрыш</span>
+                            <?php endif; ?>
+                        </td>
+                        <td class="chance-td">
+                            <div class="chance">с шансом <span><?php echo e($game -> chance); ?>%</span></div>
+                        </td>
+                        <td><a href="/game/<?php echo e($game -> id); ?>" class="round-history">Посмотреть историю игры</a></td>
+                    </tr>
+                <?php endforeach; ?>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,38 @@
+
+
+<?php $__env->startSection('content'); ?>
+        </div> <!-- end header -->
+        <script src="<?php echo e(asset('assets/js/shower_strimers.js')); ?>" ></script>
+        <div class="content">
+            <div class="info">
+                <div class="title">ТОП 20 ИГРОКОВ</div>
+                <div class="info">
+                    <div class="slot">Место</div>
+                    <div class="profile">Профиль</div>
+                    <div class="games">Сыграно игр</div>
+                    <div class="winners">Побед</div>
+                    <div class="winrate">Win Rate</div>
+                    <div class="banks">Сумма</div>
+                </div>
+            </div>
+            <div class="top">
+                <div class="list">
+                <?php foreach($users as $user): ?>
+                <div class="user_top" style="width:1050px; margin:1px auto;">
+                    <div class="slot"><?php echo e($place++); ?></div>
+                    <div class="profile">
+                        <div class="img">
+                            <img src="<?php echo e($user->avatar); ?>">
+                        </div>
+                        <div class="name"><a href="/user/<?php echo e($user->steamid64); ?>" style="text-decoration:none; color:#fff;"><?php echo e($user->username); ?></a></div>
+                    </div>
+                    <div class="games"><?php echo e($user->games_played); ?></div>
+                    <div class="winners"><?php echo e($user->wins_count); ?></div>
+                    <div class="winrate"><?php echo e($user->win_rate); ?><span>%</span></div>
+                    <div class="banks"><?php echo e(round($user->top_value)); ?><span>Р</span></div>
+                </div>
+                <?php endforeach; ?>
+                </div>
+            </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

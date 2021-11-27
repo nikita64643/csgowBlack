@@ -1,0 +1,136 @@
+
+
+<?php $__env->startSection('content'); ?>
+    <div class="content-block">
+        <div class="msg-wrap" style="display: none;">
+            <div class="icon-shield-red"></div>
+            <div class="msg-red msg-mini">
+                У нас все по-честному. Победитель на нашем сайте определяется в прямом эфире через сервис Random.org
+                <a href="/fairplay" class="btn-more arrow-sm">узнать подробнее</a>
+            </div>
+        </div>
+
+        <div class="game-info-wrap" style="margin-bottom: 20px;">
+            <div class="game-info" style="height: 186px;">
+                <div class="game-info-title">
+                    <div class="left-block">
+                        <div class="text-wrap">
+                            <span class="color-orange">игра</span>
+                            <span class="weight-normal">#</span>
+                            <span class="color-white"><?php echo e($game->id); ?></span>
+                        </div>
+                    </div>
+                    <span class="divider weight-normal"></span>
+                    <div class="right-block">
+                        <div class="text-wrap">
+                            <span class="color-orange">банк</span>
+                            <span class="weight-normal">:</span>
+                    <span class="color-white">
+                                                    <?php echo e(round($game->price)); ?>
+
+                            <span class="money" style="color: #b3e5ff;">руб</span>
+                                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-round-finish">
+                    <div class="game-info-additional">
+                        <div class="left-block">
+                            <div class="additional-text">
+                                Победный билет: <span class="winning-sum">#<?php echo e(floor($game->rand_number * $bankTotal = $game->price * 10)); ?></span>
+                                <span class="text-small">(ВСЕГО: <?php echo e($bankTotal = $game->price * 10); ?>)</span>
+                                <a href="/fairplay/<?php echo e($game->id); ?>" class="check-btn-blue">проверить</a> <br>
+
+                                Победил игрок: <div class="img-wrap"><img src="<?php echo e($game->winner->avatar); ?>"></div> <a href="/user/<?php echo e($game->winner->steamid64); ?>" class="link-user color-yellow"><?php echo e($game->winner->username); ?></a>
+                                <span class="text-small">(ШАНС: <?php echo e(\App\Http\Controllers\GameController::_getUserChanceOfGame($game->winner, $game)); ?>%)</span> <br>
+
+                                Выигрыш:
+                                <span class="winning-sum"><?php echo e($game->price); ?></span>
+                                <span class="text-small">РУБ</span>
+                            </div>
+                        </div>
+
+                        <!--<div class="round-finish-title">Игра завершена</div>!-->
+
+                        <div class="right-block">
+                            <a href="/game/<?php echo e($game->id - 1); ?>" class="btn-back-home">Посмотреть предыдущую игру</a>
+                            <a href="/" class="btn-back-home">Вернуться на главную страницу</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="usersChances" class="coursk">
+            <div id="showUsers" class="iusers active" title="Показать игроков"></div>
+            <div class="arrowscroll left"></div>
+            <div class="current-chance-block users">
+                <div class="current-chance-wrap">
+                    <?php foreach($chances as $info): ?>
+                        <div class="current-user" title="" data-original-title="<?php echo e($info->username); ?>"><a class="img-wrap" href="/user/<?php echo e($info->steamid64); ?>" target="_blank"><img src="<?php echo e($info->avatar); ?>"></a><div class="chance"><?php echo e($info->chance); ?>%</div></div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="current-chance-block items" style="display: none;">
+                <div class="current-chance-wrap">
+                    <?php foreach($bets as $bet): ?>
+                        <?php foreach(json_decode($bet->items) as $i): ?>
+                            <?php if(!isset($i->img)): ?>
+                                <div class="deposit-item <?php echo e($i->rarity); ?>"
+                                     market_hash_name="" title="<?php echo e($i->name); ?>" data-toggle="tooltip">
+                                    <div class="deposit-item-wrap">
+                                        <?php if(!isset($i->img)): ?>
+                                            <div class="img-wrap"><img
+                                                        src="https://steamcommunity-a.akamaihd.net/economy/image/class/<?php echo e(\App\Http\Controllers\GameController::APPID); ?>/<?php echo e($i->classid); ?>/100fx100f">
+                                            </div>
+                                        <?php else: ?>
+                                            <div class="img-wrap"><img src="<?php echo e(asset($i->img)); ?>"></div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="deposit-price"><?php echo e($i->price); ?> <span>руб</span>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="arrowscroll right"></div>
+            <div id="showItems" class="iskins" title="Показать предметы"></div>
+        </div>
+
+        <div id="errorBlock" class="msg-big msg-error" style="display: none;">
+            <div class="msg-wrap">
+                <h2>ВАШЕ ПРЕДЛОЖЕНИЕ ОБМЕНА ОТКЛОНЕНО!</h2>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="msg-big msg-finish">
+            <div class="msg-wrap">
+                <h2>Игра завершилась!</h2>
+                <a href="/fairplay" class="btn-fairplay">честная игра</a>
+                <p>Число раунда: <span class="underline"><?php echo e($game->rand_number); ?></p>
+                <div class="date"><?php echo e($game->updated_at->format('d.m.Y')); ?><span><?php echo e($game->updated_at->format(' - H:i')); ?></span></div>
+            </div>
+        </div>
+
+        <div id="deposits">
+            <?php foreach($bets as $bet): ?>
+                <?php echo $__env->make('includes.bet', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="msg-big msg-start">
+            <div class="msg-wrap">
+                <h2>Игра началась!</h2>
+                <a href="/fairplay" class="btn-fairplay">честная игра</a>
+                <p>Хэш: <span class="underline"><?php echo e(md5($game->rand_number)); ?></span></p>
+                <div class="date"><?php echo e($game->created_at->format('d.m.Y')); ?><span><?php echo e($game->created_at->format(' - H:i')); ?></span></div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

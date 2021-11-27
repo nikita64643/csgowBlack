@@ -1,0 +1,53 @@
+
+
+<?php $__env->startSection('content'); ?>
+<div class="user-winner-block">
+
+    <div class="title-block">
+        <h2>Топ 20 победителей</h2>
+    </div>
+
+    <div class="user-winner-table">
+        <table>
+            <thead>
+            <tr>
+                <td>Место</td>
+                <td class="winner-name-h">Профиль</td>
+                <td class="participations-h">Участий</td>
+                <td>Побед</td>
+                <td>Win rate</td>
+                <td class="round-sum-h">Сумма банков</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php foreach($users as $user): ?>
+            <tr>
+                    <td class="winner-count">
+                        <div class="count-block"><?php echo e($place++); ?></div>
+                    </td>
+
+                    <td class="winner-name">
+                        <div class="user-ava">
+                            <img src="<?php echo e($user->avatar); ?>">
+                        </div>
+                        <a href="/user/<?php echo e($user->steamid64); ?>"><span><?php echo e($user->username); ?></span></a>
+                    </td>
+
+                    <td class="participations"><?php echo e($user->games_played); ?></td>
+                    <td class="win-count"><?php echo e($user->wins_count); ?></td>
+                    <td class="winrate"><?php echo e($user->win_rate); ?>%</td>
+                    <td class="round-sum"><?php echo e(round($user->top_value)); ?></td>
+
+           </tr>
+           <?php endforeach; ?>
+               </tbody>
+              </table>
+             </div>
+            </div>
+           </div>
+         </main>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

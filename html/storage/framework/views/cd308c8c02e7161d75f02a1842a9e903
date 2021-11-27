@@ -1,0 +1,83 @@
+
+
+<?php $__env->startSection('content'); ?>
+        </div> <!-- end header -->
+        <script src="<?php echo e(asset('assets/js/shower_strimers.js')); ?>" ></script>
+        <div class="content">
+            <div class="user">
+                <div class="top">
+                    <div class="img">
+                        <img src="<?php echo e($avatar); ?>">
+                    </div>
+                    <div class="right-info">
+                        <div class="name"><?php echo e($username); ?></div>
+                        <div class="user-info">
+                            <div class="gameinfo-hist">
+                                <div class="games">
+                                Игр: <span><?php echo e($games); ?></span>
+                                </div>
+                                <div class="winners">
+                                Побед: <span><?php echo e($wins); ?></span>
+                                </div>
+                                <div class="winrate">
+                                Средний шанс победы: <span><?php echo e($winrate); ?>%</span>
+                                </div>
+                                <div class="allbanks">
+                                Сумма банков: <span><?php echo e($totalBank); ?></span> Р
+                                </div>
+                            </div>
+                            <div class="steamid64">SteamId64 пользователя: <span><?php echo e($steamid); ?></span></div>
+                            <div class="steam-link">Профиль steam: <a href="<?php echo e($url); ?>" target="_blank"><?php echo e($url); ?></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-hist">
+                    <div class="title">
+                    <?php if(!empty($u) && $u->steamid64 == $steamid): ?>
+                        Мои игры
+                    <?php else: ?>
+                        Игры <?php echo e($username); ?>    
+                    <?php endif; ?>
+                    </div>
+                    <div class="info">
+                        <div class="number">
+                        Номер игры
+                        </div>
+                        <div class="chance">
+                        Шанс
+                        </div>
+                        <div class="bank">
+                        Банк игры
+                        </div>
+                        <div class="status">
+                        Статус
+                        </div>
+                        <div class="show">
+                        Просмотр
+                        </div>
+                    </div>
+                    <div class="hist">
+                        <?php foreach($list as $game): ?>
+                        <div class="game-hist-list">
+                            <div class="number">#<?php echo e($game -> id); ?></div>
+                            <div class="chance"><?php echo e($game -> chance); ?>%</div>
+                            <div class="bank"><?php echo e($game -> bank); ?> Р</div>
+                            <div class="status">
+                                <?php if($game->win == 1): ?>
+                                <div class="success">выиграл</div>
+                                <?php elseif($game->win == -1): ?>
+                                <div class="success">не завершена</div>
+                                <?php else: ?>
+                                <div class="error">проиграл</div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="show">
+                                <a href="/game/<?php echo e($game -> id); ?>" target="_blank">Посмотреть игру</a>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

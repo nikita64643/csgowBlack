@@ -1,0 +1,104 @@
+<?php $__env->startSection('content'); ?>
+
+
+
+<div class="content">
+
+<div class="content-block">
+                <div class="about-page">
+        <div class="title-block">
+            <h2>Луты</h2>
+        </div>
+
+
+	<div class="store">
+
+
+</br>
+<?php foreach($loots as $loot): ?>
+<!-- item -->
+<div class="product">
+	<div class="product__image">
+	<div style="
+    position: absolute;
+    color: white;
+    margin: 0px 0px 0 0px;
+    padding: 10px;
+       background: #192731;
+    border-radius: 3px 0px 3px 0px;
+    line-height: 10px;
+" class=""><?php echo e(round($loot->price)); ?> РУБ</div>
+<div style="
+    float:right;
+    position: absolute;
+    color: white;
+    right: 0px;
+    padding: 10px;
+       background: #192731;
+    border-radius: 0px 0px 0px 3px;
+    line-height: 10px;
+" class=""><?php echo e($loot->maxuser); ?> М</div>
+					<a class="product__image__wrap" <?php if($loot->classid == 7): ?> style="background-size: cover;background: url(https://pp.vk.me/c629526/v629526603/25d23/WopJ-TTrCnk.jpg) -15px -4px;height: 160px;" <?php endif; ?> href="/loot/<?php echo e($loot->id); ?>">
+					
+				<img src="<?php if($loot->classid == 7): ?>  <?php else: ?> https://steamcommunity-a.akamaihd.net/economy/image/class/730/<?php echo e($loot->classid); ?>/160fx160f <?php endif; ?> ">
+			</a>
+			</div>
+				<a href="/loot/<?php echo e($loot->id); ?>" class="product__button"><?php echo e($loot->name); ?></a>
+		<div class="product__info">
+		<?php if($loot->quality != 0): ?>
+	
+		 <?php else: ?>
+															<div class="product__info__item product__info__item-cut">
+											<div class="product__info__item__label">Внешний вид</div>
+										<div style="">
+						<?php echo e($loot->quality); ?>				</div>
+				</div>
+					 <?php endif; ?> 
+							<div class="product__info__item product__info__item-cut">
+											<div class="product__info__item__label">Раритетность</div>
+										<div style="
+																				">
+						<?php echo e($loot->rarity); ?>					</div>
+				</div>
+					
+		<div class="product__info__item product__info__item-cut">
+			<div class="product__info__item__label">Цена в Steam</div>
+				<?php echo e($loot->steam_price); ?>	 руб		</div>
+			
+				<div class="product__progress">
+<div class="product__progress__bar js-progress-bar"  original-title="Осталось <?php echo e($loot->maxuser - $loot->users); ?> мест из <?php echo e($loot->maxuser); ?> возможных" style="width:<?php echo e((100/$loot->maxuser) * $loot->users); ?>%"></div>
+				</div>
+				
+
+			</div>
+
+</div>
+			
+	<!-- item -->	
+<?php endforeach; ?>	
+	<!-- </middle> -->
+
+
+			 
+                             
+                      
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+	</div>	</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

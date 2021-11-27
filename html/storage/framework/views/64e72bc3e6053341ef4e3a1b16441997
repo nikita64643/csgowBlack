@@ -1,0 +1,61 @@
+<div class="user-history-block">
+    <?php $__env->startSection('content'); ?>
+        <div class="title-block">
+            <h2>История лутов</h2>
+        </div>
+        <div class="user-history-content">
+            <?php $__empty_1 = true; foreach($loots as $loot): $__empty_1 = false; ?>
+                <div class="prize-container">
+                    <div class="prize-head">
+                        <div class="left-block">
+                            <div class="prize-number">
+                                <a href="/loot/<?php echo e($loot->id); ?>">Игра <span>#<?php echo e($loot->id); ?></span></a>
+                                <a href="/loot/<?php echo e($loot->id); ?>" class="round-history">История игры</a>
+                            </div>
+                            <div class="prize-info">
+                                <div class="winner-name">
+                                    <span class="chance chance-two">Номер билета <span><?php echo e($loot->winner_id); ?></span></span>
+                                    Победил:
+                                    <div class="img-wrap"><img src="<?php echo e($loot->winner_avatar); ?>"/>
+                                    </div>
+                                    <a href="/user/<?php echo e($loot->winner_steamid64); ?>"
+                                       class="user-name"><?php echo e($loot->winner_username); ?></a>
+                                </div>
+                                <div class="round-sum">
+                                    Выигрыш:
+                                    <span><?php echo e($loot->name); ?></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-block" style="background: none; width: 220px;">
+                            <div class="publ right-content">
+                                <?php if($loot->status_prize == \App\Game::STATUS_PRIZE_WAIT_TO_SENT): ?>
+                                    <span class="prize-status status-waiting">Отправка выигрыша</span>
+                                <?php elseif($loot->status_prize == \App\Game::STATUS_PRIZE_SEND): ?>
+                                    <span class="prize-status status-success">Выигрыш отправлен</span>
+                                <?php else: ?>
+                                    <div class="prize-status status-error">Ошибка отправки выигрыша</div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            <?php endforeach; if ($__empty_1): ?>
+                <div class="deposit-txt-info">
+                    Пока что не было ни одной игры
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <div class="msg-wrap">
+            <div class="icon-inform-white"></div>
+            <div class="msg-white msg-mini">
+                На этой страницы показаны последние <span>20 игр.</span> Вы можете сами посмотреть историю любой игры,
+                вписав ее номер в конец ссылки
+                <span class="color-lightblue-t"><span class="weight-normal">fastvictory.ru/loot/</span>номер игры</span>
+            </div>
+        </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

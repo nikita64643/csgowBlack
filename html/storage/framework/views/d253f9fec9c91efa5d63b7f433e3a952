@@ -1,0 +1,37 @@
+                <div class="bet">
+                    <div class="top_bet_bet">
+                        <div class="center">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src="<?php echo e($bet->user->avatar); ?>">
+                                </div>
+                                <div class="name"><a href="/user/<?php echo e($bet->user->steamid64); ?>" style="text-decoration:none; color:#fff;" target="_blank"><?php echo e($bet->user->username); ?></a></div>
+                                <span class="depCount">внес <?php echo e($bet->itemsCount); ?> <?php echo e(trans_choice('lang.items', $bet->itemsCount)); ?></span>
+                            </div>
+                            <div class="arrow"></div>
+                            <div class="betSumm">На сумму: <span><?php echo e($bet->price); ?> Р</span></div>
+                            <div class="arrow"></div>
+                            <div class="betChance">Шанс: <span class="id-<?php echo e($bet->user->steamid64); ?>"><?php echo e(\App\Http\Controllers\GameController::_getUserChanceOfGame($bet->user, $bet->game)); ?>%</span></div>
+                            <div class="arrow"></div>
+                            <div class="ticket">
+                            Билеты от <span>#<?php echo e(round($bet->from)); ?></span> до <span>#<?php echo e(round($bet->to)); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div class="items">
+                            <?php foreach(json_decode($bet->items) as $i): ?>
+                            <div class="item base <?php if(!isset($i->img)): ?><?php echo e($i->rarity); ?> <?php else: ?> card <?php endif; ?>" market_hash_name="" title="<?php echo e($i->name); ?>" data-toggle="tooltip">
+                                <div class="img">
+                                    <?php if(!isset($i->img)): ?>
+                                    <img src="https://steamcommunity-a.akamaihd.net/economy/image/class/<?php echo e(\App\Http\Controllers\GameController::APPID); ?>/<?php echo e($i->classid); ?>/100fx100f">
+                                    <?php else: ?>
+                                    <img src="<?php echo e(asset($i->img)); ?>" style="margin-top:19px; width:47px; height:22px; margin-left:14px;">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="price"><?php echo e($i->price); ?> Р</div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>

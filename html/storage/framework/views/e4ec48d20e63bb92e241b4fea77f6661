@@ -1,0 +1,62 @@
+<?php $__env->startSection('content'); ?>
+        </div> <!-- end header -->
+        <script src="<?php echo e(asset('assets/js/shower_strimers.js')); ?>" ></script>
+        <script src="<?php echo e(asset('assets/js/shop.js')); ?>"></script>
+        <div class="content">
+            <div class="shop">
+                <div class="title">Магазин / <a href="<?php echo e(route('cards-history')); ?>" style="color:#fff;">История покупок</a></div>
+                <div class="items">
+                    <?php $__empty_1 = true; foreach($items as $item): $__empty_1 = false; ?>
+                    <div class="item" onclick="buy(<?php echo e($item->id); ?>);updateBalance()">
+                        <div class="status"><?php if($item->quality == "Прямо с завода"): ?> (FN) <?php elseif($item->quality == "Немного поношенное"): ?> (MW) <?php elseif($item->quality == "После полевых испытаний"): ?> (FT) <?php elseif($item->quality == "Поношенное"): ?> (WW) <?php elseif($item->quality == "Закаленное в боях"): ?> (BS) <?php elseif($item->quality == "null"): ?> <?php endif; ?></div>
+                        <div class="kolvo">(x<?php echo e(\App\Shop::countItem($item->classid)); ?>)</div>
+                        <div class="img">
+                            <img src="https://steamcommunity-a.akamaihd.net/economy/image/class/<?php echo e(\App\Http\Controllers\GameController::APPID); ?>/<?php echo e($item->classid); ?>/200fx200f">
+                        </div>
+                        <div class="price">(<?php echo e(floor($item->price)); ?> Р)</div>
+                        <div class="name"><?php echo e($item->name); ?></div>
+                    </div>
+                    <?php endforeach; if ($__empty_1): ?>
+                    <center style="height:49px; line-height:49px ; font-size:13px;">Подождите немного. В данный момент идет обновления вещей.</center>
+                    <?php endif; ?>
+                </div>
+            </div>
+            
+        <script>
+            function buy(id) {
+                $.ajax({
+                    url: '/shop/buy',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {id: id},
+                    success: function (data) {
+                        if (data.success) {
+
+                            $.notify(data.msg, {className: "success"});
+                            setTimeout(function () {
+                                that.parent().parent().parent().hide()
+
+                            }, 5500);
+                        }
+                        else {
+                            if (data.msg) $.notify(data.msg, {className: "error"});
+                        }
+                    },
+                    error: function () {
+                        that.notify("Произошла ошибка. Попробуйте еще раз", {
+                            className: "error"
+                        });
+                    }
+                });
+                return false;
+            }
+
+
+            function updateBalance() {
+                $.post('/getBalance', function (data) {
+                    $('#balance').text(data);
+                });
+            }
+        </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

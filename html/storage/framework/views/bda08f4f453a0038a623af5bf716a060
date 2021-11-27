@@ -1,0 +1,34 @@
+<div class="deposits-container">
+    <div class="deposit-head">
+        <div class="left-block">
+            <div class="profile-img"><img src="<?php echo e($bet->user->avatar); ?>">
+            </div>
+            <ul class="list-reset">
+                <li class="profile-block"><span class="profile-name"><a href="/user/<?php echo e($bet->user->steamid64); ?>" style="color: #b4fca6;"><?php echo e($bet->user->username); ?> </a></span> <span class="profile-level" data-original-title="" title=""></span> <span class="deposit-count">внес <?php echo e($bet->itemsCount); ?> <?php echo e(trans_choice('lang.items', $bet->itemsCount)); ?></span>
+                </li>
+                <li class="deposit-sum"><?php echo e($bet->price); ?> <span>руб</span>
+                </li>
+                <li class="deposit-chance">(шанс: <span class="id-<?php echo e($bet->user->steamid64); ?>"><?php echo e(\App\Http\Controllers\GameController::_getUserChanceOfGame($bet->user, $bet->game)); ?>%</span>)</li>
+            </ul>
+        </div>
+        <div class="right-block">
+            <div class="ticket-number" data-original-title="" title="">Билеты: от <span class="color-orange">#<?php echo e($bet->from); ?></span> до <span class="color-orange">#<?php echo e($bet->to); ?></span> <span class="help"></span>
+            </div>
+        </div>
+    </div>
+    <div class="deposit-content">
+        <?php foreach(json_decode($bet->items) as $i): ?>
+        <div class="deposit-item <?php if(!isset($i->img)): ?><?php echo e($i->rarity); ?> <?php else: ?> card up-card <?php endif; ?>" market_hash_name="" title="<?php echo e($i->name); ?>" data-toggle="tooltip">
+            <div class="deposit-item-wrap">
+                <?php if(!isset($i->img)): ?>
+                    <div class="img-wrap"><img src="https://steamcommunity-a.akamaihd.net/economy/image/class/<?php echo e(\App\Http\Controllers\GameController::APPID); ?>/<?php echo e($i->classid); ?>/100fx100f"></div>
+                <?php else: ?>
+                    <div class="img-wrap"><img src="<?php echo e(asset($i->img)); ?>"></div>
+                <?php endif; ?>
+                </div>
+                <div class="deposit-price"><?php echo e($i->price); ?> <span>руб</span>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        </div>
+</div>

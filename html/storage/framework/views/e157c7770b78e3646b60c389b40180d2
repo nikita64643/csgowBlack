@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="no-js ru" lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title><?php echo e($title); ?>FASTVICTORY</title>
+    <meta name="keywords" content="csgo джекпот,csgo jackpot" />
+    <meta name="description" content="FASTVICTORY.RU - Умножь свои скины CS:GO" />
+    <meta name="viewport" content="width=1100" />
+    <meta name="csrf-token" content="<?php echo csrf_token(); ?>">
+    <link rel="icon" type="image/png" href="<?php echo e(asset('assets/img/favicon.png')); ?>"/>
+    <link href="<?php echo e(asset('assets/css/style.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/css/loot.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/css/chat.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/css/perfect-scrollbar.css')); ?>" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
+    <script src="<?php echo e(asset('assets/js/main.js')); ?>" ></script>
+    <script src="<?php echo e(asset('assets/js/vendor.js')); ?>" ></script>
+
+    <script>
+    <?php if(!Auth::guest()): ?>
+			var avatar = '<?php echo e($u->avatar); ?>';
+        const USER_ID = '<?php echo e($u->steamid64); ?>';
+    <?php endif; ?>
+        var START = true;
+    </script>
+</head>
+<body>
+<div class="main-container">
+        <div class="dad-container">
+            <header>
+    <div class="header-container">
+        <div class="header-top">
+            <div class="logotype active">
+                <a href="/"><img src="<?php echo e(asset('assets/img/logo-ru.png')); ?>"></a>
+            </div>
+            <div class="header-menu">
+                <ul id="headNav" class="list-reset">
+                    <li class="top"><a href="<?php echo e(route('top')); ?>">Топ игроков</a></li>
+                    <li class="history"><a href="<?php echo e(route('history')); ?>">История игр</a></li>
+                    <li class="about"><a href="<?php echo e(route('about')); ?>">О сайте</a></li>
+                    <li class="faq"><a href="<?php echo e(route('support')); ?>">Поддержка</a></li>
+                    <li class="fairplay"><a href="<?php echo e(route('fairplay')); ?>">Честная игра</a></li>
+                    <li class="vkontakte"><a href="https://vk.com/fastvictoryru" target="_blank">Вконтакте</a></li>
+                    <li class="magazine last"><a href="/loot">Луты</a></li>
+					<li class="magazine last"><a href="/loothistory">История лутов</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <div class="left-block">
+                <div class="information-block">
+                    <ul class="list-reset">
+                        <li><span class="stats-onlineNow">0</span> сейчас онлайн</li>
+                        <li><span><?php echo e(\App\Game::gamesToday()); ?></span> игр сегодня</li>
+                        <li><span><?php echo e(\App\Game::maxPrice()); ?></span> макс. выигрыш</li>
+                        <li class="max-bank">
+                            <a href="/game/<?php echo e(\App\Game::lastGame()); ?>">
+                                <span><?php echo e(\App\Game::lastGame()); ?></span> последняя игра
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right-block">
+            <?php if(Auth::guest()): ?>
+                <div class="profile">
+                    <a href="<?php echo e(route('login')); ?>" class="authorization">войти через steam</a>
+                </div>
+            <?php else: ?>
+            <div class="profile">
+                   <div class="profile-block">
+                        <div class="user-avatar">
+                            <img src="<?php echo e($u->avatar); ?>">
+                        </div>
+                        <div class="profile-wrap-block">
+                            <div class="profile-head">
+                                <div class="user-login"><?php echo e($u->username); ?></div>
+                                <a href="<?php echo e(route('logout')); ?>" class="exit">выйти</a>
+                            </div>
+
+                            <div class="profile-footer">
+                                <ul class="list-reset">
+                                    <li><a href="/user/<?php echo e($u->steamid64); ?>">мой профиль</a></li>
+                                    <li><a href="<?php echo e(route('my-history')); ?>">мои игры</a></li>
+                                    <li><a href="<?php echo e(route('my-inventory')); ?>">инвентарь</a></li>
+                                </ul>
+                         </div>
+                       </div>
+                    </div>
+                  </div>
+               <?php endif; ?>
+                </div>
+
+        </div>
+    </div>
+</header>
+<main>
+     <div class="content-block">
+            <?php echo $__env->yieldContent('content'); ?>
+    </main>
+  </div>
+</body>
+</div>
+
+<script src="<?php echo e(asset('assets/js/app.js')); ?>" ></script>
+<script src="<?php echo e(asset('assets/js/chat.js')); ?>" ></script>
+
+<script>
+    <?php if(!Auth::guest()): ?>
+    function updateBalance() {
+        $.post('<?php echo e(route('get.balance')); ?>', function (data) {
+            $('.userBalance').text(data);
+        });
+    }
+    function addTicket(id, btn){
+        $.post('<?php echo e(route('add.ticket')); ?>',{id:id}, function(data){
+            updateBalance();
+            return $.notify(data.text, data.type);
+        });
+    }
+    <?php endif; ?>
+
+   
+</script>
+</html>

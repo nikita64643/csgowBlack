@@ -1,0 +1,35 @@
+
+
+<?php $__env->startSection('content'); ?>
+        </div> <!-- end header -->
+        <script src="<?php echo e(asset('assets/js/shower_strimers.js')); ?>" ></script>
+        <div class="content">
+            <div class="history" style="margin-top:20px;">
+<?php $__empty_1 = true; foreach($games as $game): $__empty_1 = false; ?>
+<div class="hgame">
+<div class="c">   
+    <div class="img">
+        <img src="<?php echo e($game->winner->avatar); ?>">
+    </div>
+    <div class="hgame_info">
+        ИГРА <span>#<?php echo e($game->id); ?></span><br>
+        ПОБЕДИТЕЛЬ: <span class="name"><?php echo e($game->winner->username); ?></span> ВЫИГРАЛ С ШАНСОМ <i><?php echo e(\App\Http\Controllers\GameController::_getUserChanceOfGame($game->winner, $game)); ?>%</i><br>
+        БАНК РАУНДА: <span><?php echo e($game->price); ?> РУБЛЕЙ</span>
+    </div>
+    <div class="status">
+        <?php if($game->status_prize == \App\Game::STATUS_PRIZE_WAIT_TO_SENT): ?>
+        <div class="success">Отправка выигрыша</div>
+        <?php elseif($game->status_prize == \App\Game::STATUS_PRIZE_SEND): ?>
+        <div class="success">выигрыш отправлен</div>
+        <?php else: ?>
+        <div class="success">ошибка при отправке</div>
+        <?php endif; ?>
+    </div>
+</div>
+</div>
+<?php endforeach; if ($__empty_1): ?>
+<div class="no-game-on-hist" style="width:100%; height:50px; line-height:50px; text-align:center; color:#fff; font-size:14px;">Пока что не было ни одной игры</div>
+<?php endif; ?>
+            </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

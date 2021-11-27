@@ -1,0 +1,22 @@
+<?php $__env->startSection('content'); ?>
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Привет, !</h1>
+
+                <p>
+                    Это бета версия панели в дальнейшем она будет доробатываться
+                <ul>
+                    <li><code>Пользователи</code> &mdash; Сдесь вы сможете видеть данные своих пользователей и изменять
+                        их
+                    </li>
+                    <li><code>Настройки ботов</code> &mdash; Тут вы можете настроить ботов
+                    </li>
+                    <li><code>Конкурсы</code> &mdash; Тут вы можете создать конкурсы</li>
+                </ul>
+                </p>
+            </div>
+
+        </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.pages.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

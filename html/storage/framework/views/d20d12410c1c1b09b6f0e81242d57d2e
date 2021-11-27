@@ -1,0 +1,147 @@
+
+
+
+<?php $__env->startSection('content'); ?>
+ <script src="<?php echo e(asset('assets/js/loot.js')); ?>" ></script>
+	<link href="<?php echo e(asset('assets/css/loot.css')); ?>" rel="stylesheet">
+
+<div class="content">
+
+
+
+<?php foreach($loots as $loot): ?>
+
+
+
+
+<script>var GAME ='<?php echo e($loot->id); ?>'; 
+
+var gameEnd = <?php if($loot->winner_id == 0): ?> false <?php else: ?> true <?php endif; ?> ;</script>
+
+
+<div class="content-block">
+                <div class="about-page">
+        <div class="title-block">
+            <h2>Розыгрыш <?php echo e($loot->name); ?></h2>
+        </div>
+
+
+
+
+<div class="about" style=" padding: 0; ">
+
+
+
+
+
+
+
+
+
+
+<span class="wineinf">
+<?php if($loot->winner_id==0): ?>Победитель: будет объявлен через <span class="wineinfs"><?php echo e($loot->maxuser - $loot->users); ?></span> мест. <?php else: ?>
+Победитель: <?php echo e($winner); ?>.
+<?php endif; ?>
+</span>
+<span class="wineinf2">Информация: Вы можете занять неограниченное количество мест. Вы занимаете <span class="mez"><?php echo e($mez); ?></span> мест для этого предмета.</span>
+<div class="giveaway" style=" margin-left: 415px; "><img src=" <?php if($loot->classid == 7): ?>  <?php else: ?>  https://steamcommunity-a.akamaihd.net/economy/image/class/730/<?php echo e($loot->classid); ?>/85fx85f <?php endif; ?>" original-title="<?php echo e($loot->name); ?>" class="giveaway_subject"></div>
+
+<div class="panel"><span class="gusers" style=" margin-left: 130px; ">Всего <span id="gusersgi"><?php echo e($loot->users); ?></span> мест занято</span>
+<?php if($loot->winner_id==0): ?>
+	<span id="offgamess"><a class="add" id="add_to_giveaway" href='javascript://'>Занять случайное место</a></span>
+
+<?php else: ?>
+
+  <form action='https://api.random.org/verify' method='post' target="_blank">
+                    <input type='hidden' name='format' value='json' />
+                    <input type='hidden' name='random' value='<?php echo e($loot->randomorg_result); ?>' />
+                    <input type='hidden' name='signature' value='<?php echo e($loot->randomorg_sign); ?>' />
+                    <button type="submit" style="margin-left: 64px; float: left; padding: 5px; color: white; background: #73b95e;border: 0;" style="margin-top: -30px;" class="btn btn-white btn-sm btn-right">Проверить</button>
+                </form>
+
+
+<?php endif; ?>
+<span class="gusers2"><?php if($loot->winner_id==0): ?>Победитель: не выбран. <?php else: ?> Победитель: <?php echo e($winner); ?>. <?php endif; ?></span></div>
+
+
+<?php endforeach; ?>	
+
+<div id="lotUsers" class="usersbox" style="overflow:hidden">
+<p class="title-work" style=" margin-left: 347px; ">Места</p>
+
+
+
+
+	
+
+  
+  <?php for($i = 1; $i <= $loot->maxuser; $i++): ?> 
+	  
+  
+  
+ 
+
+
+
+  <?php if(array_key_exists($i, $lots)): ?>
+
+<div class="ticket ticket-<?php echo e($i); ?> not_animated user<?php echo e($lots[$i]['id']); ?>" data-place="<?php echo e($i); ?>" lot-idx="<?php echo e($i); ?>" lot-empty="false">
+
+	<div class="lottf ticket-<?php echo e($i); ?>"></div>
+
+								<a <?php if($loot->winner_id!=$i & $loot->winner_id !=0): ?> style=" opacity: 0.3; " <?php endif; ?> target="_blank" href="http://steamcommunity.com/profiles/<?php echo e($lots[$i]['id']); ?>">
+								
+							
+										<img src="<?php echo e($lots[$i]['avatar']); ?>">
+									
+									<div><?php echo e($i); ?></div>
+								</a>
+								
+							
+							</div>  
+  
+								<?php else: ?>
+									
+								<div class="ticket ticket-<?php echo e($i); ?> not_animated" data-place="<?php echo e($i); ?>" data-game="<?php echo e($loot->id); ?>" lot-idx="<?php echo e($i); ?>" lot-empty="true">
+
+	
+
+								<a <?php if($loot->winner_id!=$i & $loot->winner_id !=0): ?> style=" opacity: 0.3; " <?php endif; ?> class="addtollot" data-place="<?php echo e($i); ?>" lot-idx="<?php echo e($i); ?>" data-game="<?php echo e($loot->id); ?>" lot-empty="true" href="javascript://">
+								
+							
+										<img class="ticket-<?php echo e($i); ?>" src=""> 
+									
+									<div><?php echo e($i); ?></div>
+								</a>
+								
+							
+							</div>  
+								
+								<?php endif; ?>	
+							
+									  
+						
+
+				
+
+	  
+	  
+	  	
+
+										
+								<?php endfor; ?>
+
+													
+								
+									
+											</div>
+
+ 
+	</div>
+
+	</div>
+</div></div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

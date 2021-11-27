@@ -1,0 +1,675 @@
+﻿.support {
+
+	padding: 10px 97px;
+	overflow: hidden;
+	}
+.noty {
+    display: none;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    background: #5ccd49;
+    z-index: 9999;
+	  margin: 0 -9999rem;
+  /* add back section padding value */
+  padding: .25rem 9999rem;
+      font-size: 24px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 90px;
+}	
+.table {
+width: 818px;
+margin-top: 10px;
+position: relative;
+float: left;
+}
+.table .list:nth-of-type(1) {
+
+  border: 0 none;
+  line-height: 45px; 
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background: #5ccd49;color: #000!important;
+  }
+
+.table .list {
+white-space: nowrap;	
+margin-bottom: 5px;  
+ border: 0 none;
+ line-height: 45px;
+ text-align: center; 
+ overflow: hidden; 
+ position: relative;
+ background: #5ccd49;
+ color: #c14d4d!important;
+  border-radius: 10px;
+  color: rgba(29,33,35,0.1);
+ }
+.table .list .tb0 {
+	width: 5%;
+	text-align: center;
+  float: left;
+	display:inline-block;
+	color: white;
+	
+	}
+.table .list .tb1 {
+	width: 25%;
+	margin-left: 20px;
+	text-align: center;
+  float: left;
+	display:inline-block;
+	color: white;
+	
+	}
+.table .list .tbId {
+	width: 15%;
+	text-align: center;
+  float: left;
+	display:inline-block;
+	color: #5ccd49;
+	
+	}
+.table .list .tb2 {
+	width: 25%;
+  float: right;
+	text-align: center;
+	display:inline-block;
+	color: white;
+	
+	
+	}
+.support .table .list .tb10 {
+	width: 25%;
+  float: center;
+	text-align: center;
+	display:inline-block;
+	color: white;
+	
+	}
+.table .list .tb8 {
+	width: 34%;
+  float: center;
+	text-align: center;
+	display:inline-block;
+	color: white;
+	
+	}
+.table .list .tb9 {
+	width: 34%;
+  float: center;
+	text-align: center;
+	display:inline-block;
+	color: #5ccd49;
+	
+	}
+.table .list .tb3 {
+	width: 25%;
+	text-align: center;
+	display:inline-block;
+	  float: right;
+	  color: white;
+	
+	}
+	
+
+.table .list .tb4 {
+	width: 25%;
+	  float: right;
+	text-align: center;
+margin-right: 10px;
+	display:inline-block;
+	color: white;
+	
+	}
+.table .list .tbStatus {
+	width: 19%;
+	  float: right;
+	text-align: center;
+margin-right: 10px;
+	display:inline-block;
+	color: #5ccd49 ;
+	
+	}
+.table .list .tbStatusZokrit {
+	width: 19%;
+	  float: right;
+	text-align: center;
+margin-right: 84px;
+	display:inline-block;
+	color: #5ccd49;
+	
+	}
+.table .list .tb5 {
+	width: 15%;
+	}
+.table .list .tb6 {
+	width: 15%;
+	}
+.noty-text {
+
+}
+a,a:link {
+    text-decoration: none;
+	  color: #cd4949;
+}
+a:active {
+	 color: #cd4949;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+      color: #ffffff;
+}
+
+.newticket {
+    background: #cd4949;
+    color: white;
+    padding: 50px;
+    width: 400px;
+    float: left;
+	cursor: pointer;
+	border-radius: 10px;
+}
+.listticket {
+    background: #cd4949;
+    color: white;
+    padding: 50px;
+    width: 400px;
+    float: right;
+	cursor: pointer;
+	 border-radius: 10px;
+}
+.support .table {
+width: 818px;
+margin-top: 10px;
+position: relative;
+float: left;
+}
+.support .table .list:nth-of-type(1) {
+
+  border: 0 none;
+  line-height: 45px; 
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background: #1D2123;color: #000!important;
+  }
+
+.support .table .list {
+white-space: nowrap;	
+margin-bottom: 5px;  
+ border: 0 none;
+ line-height: 45px;
+ text-align: center; 
+ overflow: hidden; 
+ position: relative;
+ background: #1D2123;
+ color: #c14d4d!important;
+  border-radius: 10px;
+  color: rgba(29,33,35,0.1);
+ }
+.nSend {
+    margin-top: 10px;
+    display: block;
+    position: relative;
+    float: left;
+}
+.nSend input[type="text"] {
+    border: 2px #c14d4d solid;
+    width: 818px;
+    height: 34px;
+    padding: 0 12px;
+    font: 13px 'Open Sans';
+    color: #d9534f;
+    float: left;
+	background-color: #5ccd49 ;
+	    margin-bottom: 5px;
+}
+.nSend textarea{
+    border: 2px #c14d4d solid;
+    width: 818px;
+    height: 20px;
+    padding: 5px 12px 74px 12px;
+    font: 13px 'Open Sans';
+    color: #d9534f;
+    float: left;
+	background-color: #5ccd49 ;
+    margin-bottom: 5px;
+	-ms-overflow-style: none
+}
+.nSend input[type="submit"] {
+    background: #d9534f;
+    border: 0 none;
+    width: 141px;
+    height: 34px;
+    color: white;
+    float: left;
+    cursor: pointer;
+	
+}
+.other-title {
+	background: #334856;
+	line-height: 41px; 
+	text-align: center;
+	width: 100%;
+}
+.gameamount {
+    overflow: hidden;
+}
+.gameamount {
+    overflow: hidden;
+}
+.gameamount button {
+    vertical-align: middle;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: rgba(79, 192, 113, 0.27);
+    border: 1px solid #498877;
+    color: #F1F1F1;
+    text-align: center;
+    padding: 5px 0px 2px;
+    font-size: 12px;
+    width: 182px;
+    margin-top: 0px;
+    outline: none;
+}
+.gameamount input[type="text"] {
+    background-color: #1F2D38;
+    border: 1px solid #314657;
+    height: 33px;
+    line-height: 33px;
+    padding: 0px 0px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: #c2c3c7;
+    outline: 0;
+    transition: 0.2s;
+    display: list-item;
+    width: 390px;
+    font-size: 15px;
+    text-align: center;
+	  text-transform: uppercase;
+}
+
+.gameamount input[type="submit"] {
+    background-color: rgba(76,175,80,0.5);
+    border: 1px solid #314657;
+    height: 33px;
+    line-height: 33px;
+    padding: 0px 0px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: #c2c3c7;
+    outline: 0;
+    transition: 0.2s;
+    display: list-item;
+    width: 390px;
+    font-size: 15px;
+    text-align: center;
+	  text-transform: uppercase;
+}
+.gameamount button {
+    vertical-align: middle;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: rgba(79, 192, 113, 0.27);
+    border: 1px solid #498877;
+    color: #F1F1F1;
+    text-align: center;
+    padding: 5px 0px 2px;
+    font-size: 12px;
+    width: 390px;
+    margin-top: 0px;
+    outline: none;
+}
+.ref_balance2 {
+    background-color: #1F2D38;
+    border: 1px solid #314657;
+    height: 70px;
+    line-height: 23px;
+    padding: 12px 10px;
+    color: #FFF;
+    transition: 0.2s;
+    width: 200px;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+	float: left;
+	
+	
+}
+
+span.ntitle {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+span.nabout {
+    text-align: center;
+    display: block;
+}
+.nticket {
+    margin-top: 10px;
+    display: block;
+    position: relative;
+    float: left;
+}
+.nticket input[type="text"] {
+    border: 2px #c14d4d solid;
+    width: 818px;
+    height: 34px;
+    padding: 0 12px;
+    font: 13px 'Open Sans';
+    color: #d9534f;
+    float: left;
+	background-color: #1D2123;
+	    margin-bottom: 5px;
+}
+.nticket textarea{
+    border: 2px #c14d4d solid;
+    width: 818px;
+    height: 20px;
+    padding: 5px 12px 74px 12px;
+    font: 13px 'Open Sans';
+    color: #d9534f;
+    float: left;
+	background-color: #1D2123;
+    margin-bottom: 5px;
+	-ms-overflow-style: none
+}
+.nticket input[type="submit"] {
+    background: #d9534f;
+    border: 0 none;
+    width: 141px;
+    height: 34px;
+    color: white;
+    float: left;
+    cursor: pointer;
+	
+}.fticket {
+    display: block;
+    float: left;
+    background: #d9534f;
+    color: white;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+	border-radius: 5px;
+}
+.fticket2 {
+    display: block;
+    float: center;
+    background: #5cb85c;
+    color: white;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    width: 126%;
+    margin-top: 15px;
+	border-radius: 5px;
+}
+.oticket {
+    display: block;
+    float: left;
+    background: #5cb85c;
+    color: white;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+	border-radius: 5px;
+}
+.sticket .avatar {
+    float: left;
+    display: block;
+    position: relative;
+	 
+
+}
+.sticket .avatar_user {
+    float: left;
+    display: block;
+    position: relative;
+	 
+}
+
+.sticket {
+    float: left;
+    margin-top: 20px;
+    display: block;
+    position: relative;
+	
+}
+
+.sticket .avatar img {
+    border-radius: 50%;
+    width: 60px;
+
+}
+.sticket .avatar_user img {
+    border-radius: 50%;
+    width: 60px;
+	
+}
+.sticket .tfe {
+    display: block;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 500px;
+	
+	
+}
+.sticket .title {
+    color: #d9534f;
+
+  
+}
+
+.sticket .title_admin {
+    color: #5ccd49;
+
+  
+}
+.sticket .msg {
+	color: #fff;
+    width: 700px;
+	margin-top: 5px;
+    display: block;
+    float: left;
+    position: relative;
+    white-space: pre;
+    word-break: break-word;
+	
+}
+
+
+.newtif input[type="text"] {
+    border: 2px #c14d4d solid;
+    width: 740px;
+    height: 34px;
+    padding: 0 12px;
+    font: 13px 'Open Sans';
+    color: #d9534f;
+    float: left;
+	    margin-bottom: 5px;
+}
+.newtif textarea{
+	border: 2px #c14d4d solid;
+    width: 100%;
+    height: 110px;
+    background: #1D2123;
+    padding: 5px 12px 54px 12px;
+    border: 0;
+    margin: 15px 0 0 0;
+    font: 13px 'Open Sans';
+    color: #fff;
+    float: left;
+    margin-bottom: 5px;
+}
+.newtif input[type="submit"] {
+    background: #d9534f;
+    border: 0 none;
+    width: 141px;
+    height: 34px;
+    color: white;
+    float: left;
+    cursor: pointer;
+    margin-left: 100px;
+	margin-top: 20px;
+    
+}.newtif {
+    float: left;
+}span.infsff {
+    display: block;
+    margin-top: 30px;
+    color: #d9534f;
+}span.thanks {
+    display: block;
+    margin-top: 30px;
+    color: #5cb85c;
+}
+.sticket .tfe .time {
+ float: right;
+    right: 20px;
+    position: absolute;
+    color: #5CB85C;
+    top: 10px;
+}
+.sticket .tfe .time_user {
+ float: right;
+    right: 20px;
+    position: absolute;
+    color: #D92B4C;
+    top: 10px;
+}
+.suticket {
+    float: left;
+    margin-top: 20px;
+    display: block;
+    position: relative;
+    width: 100%;
+	background: #1D2123;
+	   border-radius: 50px;
+    border: 1px #D92B4C solid;
+	
+
+}
+.suticket_admin {
+    float: left;
+    margin-top: 20px;
+    display: block;
+    position: relative;
+    width: 100%;
+	background: #1D2123;
+	   border-radius: 50px;
+    border: 1px #5ccd49 solid;
+
+}
+.title-block {
+	margin-bottom: 20px;
+}
+.title-block .icon-support {
+	display: inline-block;
+	height: 83px;
+	position: relative;
+	top: -20px;
+}
+
+.other-title {
+	 font-size: 16px;
+	 font-weight: 300;
+	 text-align: center;
+	 display:inline-block;
+	 margin-top: 20px;
+}
+
+.game-info-wrap {
+	margin: -1px -20px 0px;
+	position: relative;
+}
+.game-info-wrap.game-start {
+	position: relative;
+}
+.game-info-wrap.game-start:after {
+	content: '';
+
+	width: 66px;
+	height: 75px;
+	position: absolute;
+	bottom: 21px;
+	left: 49.8%;
+	margin: 0 -35px;
+}
+.game-info {
+	text-align: center;
+	height: 60px;
+	position: relative;
+	overflow: hidden;
+
+	/*box-shadow: inset 0px 50px 50px -50px #59A1B6;*/
+}
+
+.game-info .game-info-title:after {
+	content:'';
+	display: block;
+	clear: both;
+}
+
+.game-info .game-info-title .left-block {
+	float: left;
+	width: 470px;
+	text-align: right;
+}
+
+.game-info .game-info-title .right-block {
+	float: right;
+	width: 470px;
+	text-align: left;
+}
+
+.game-info .game-info-title .text-wrap{
+	display:inline-block
+}
+
+.game-info .game-info-title {
+	font-size: 26px;
+	font-weight: 300;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, 0.26);
+	text-transform: uppercase;
+	text-align: center;
+	position: relative;
+	z-index: 105;
+	top: 16px;
+	height: 46px;
+	display: inline-block;
+	left: -5px;
+	white-space: nowrap;
+}
+.deposit-txt-info {
+	background-color: #573c46;
+	border: solid 1px #734857;
+	color: #fad8f1;
+	font-weight: 400;
+	line-height: 26px;
+	font-size: 14px;
+	text-align: center;
+	margin: 0px 0px 20px;
+}
+
+
+/* ======= */
